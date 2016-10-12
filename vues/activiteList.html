@@ -1,0 +1,65 @@
+{% extends 'page.html' %}
+
+{% block titre %}
+ Activité
+{% endblock %}
+
+{% block head %}
+<link rel='stylesheet' type='text/css' href='css/activiteList.css' />
+{% endblock %}
+
+
+{% block main %}
+<div class='listeMenu'>
+	<div class='menuG'>
+		<div id='filtre'>
+			<div class='titre3'><h2>Filtre</h2></div>
+			<div class='selectContainer'>
+				<div class='selectTitre'>Ville</div>
+				<div class='selectSubContainer'>
+					{% for ville in villes %}
+					<a href='./index.php?display=activites&filtre=ville&val={{ville.id}}'>{{ville.nom}}</a>
+					{% endfor %}
+				</div>
+			</div>
+			<div class='selectContainer'>
+				<div class='selectTitre'>Catégorie</div>
+				<div class='selectSubContainer'>
+					{% for categorie in categories %}
+					<a href='./index.php?display=activites&filtre=categorie&val={{categorie.id}}'>{{categorie.nom}}</a>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+	{% if nbPages > 1 %}
+	<div class='menuD'>
+			{% for i in 1..nbPages %}
+			{% if (filtre is null) or (val is null) %}
+			<a href='./index.php?display=activites&filtre={{filtre}}&val={{val}}&page={{i}}'>{{i}}</a>
+			{% else %}
+			<a href='./index.php?display=activites&filtre={{filtre}}&val={{val}}&page={{i}}'>{{i}}</a>
+			{% endif %}
+			{% endfor %}
+	</div>
+	{% endif %}
+</div>
+<div>
+	{% if activites|length is sameas (0) %}
+	<div class='noResult'>
+		Aucune activité correspondante
+	</div>
+	{% else %}
+	<div class='mainList'>
+		{% for activite in activites %}
+		<div class='activiteLine'>
+	      <div class="titreact"><a href='./index.php?display=activite&id={{activite.id}}'>{{activite.titre}}</a></div>
+	      <div class="villeact">{{activite.ville}}</div>
+	      <div class="dateact">{{activite.date}}</div>
+	      <div class="organisateuract">{{activite.user}}</div>
+		</div>
+		{% endfor %}
+	</div>
+	{% endif %}
+</div>
+{% endblock %}

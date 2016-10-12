@@ -1,0 +1,288 @@
+#login {
+	position: relative;
+}
+
+
+#connectBloc {
+	position: absolute;
+	top: 20px;
+	left: 0;
+	display: none;
+	background-color: white;
+	padding: 20px;
+	width: auto;
+}
+
+body {
+	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+	font-size: 15px;
+	background-color: #FFF;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+#header {
+	position: fixed;
+	height: 80px;
+	background-color: #FFF;
+	width: 100%;
+	z-index: 100;
+	-webkit-box-shadow: 0px 2px 5px rgba(100, 100, 100, 0.15);
+-moz-box-shadow:    0px 2px 5px rgba(100, 100, 100, 0.15);
+box-shadow:         0px 2px 5px rgba(100, 100, 100, 0.15);
+}
+
+#content {
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+/*text-align: center;*/
+}
+#content2 {
+	margin-left: auto;
+	margin-right: auto;
+	width: 69%;
+	padding-bottom: 20px;
+/*background-color: #f9f9f9;*/
+}
+
+#logo2 {
+	position: absolute;
+	margin-right: auto;
+	height: 100%;
+	width: 180px;
+	margin-top: 7px;
+}
+
+ul li a {
+ display:block;
+ float:left;
+ width:100px;
+ color:black;
+ text-decoration:none;
+ padding:5px;
+  margin:0 20px;
+ }
+
+ li {
+
+ }
+
+.menu ul{
+	list-style: none;
+	text-align: right;
+  margin: 0;
+}
+
+
+.menu a:hover{
+	background-color: #F0EFEF;
+}
+
+.menu a.active {
+	background-color: #F0EFEF;
+  color: #000000;
+  cursor: default;
+}
+
+
+.menu {
+	padding-top: 23px;
+	margin-left: 100px;
+}
+
+#wrap {
+	padding-top:80px;
+}
+
+#headerLogin {
+	padding-top: 15px;
+	height: 59px;
+	background-color: #CBCBCB;
+	color: #FFF;
+}
+
+#main {
+	padding-top: 5px;
+}
+
+
+#footr {
+	height: 100px;
+	width: 100%;;
+	background: #383838;
+	bottom: 0;
+	position: absolute;
+}
+
+/*#footer {
+	bottom: 0;
+	height: 100px;
+	width: 100%;;
+	background: #383838;
+	text-align: center;
+	color: #FFF;
+   }*/
+
+
+/* -------------------PARTI CSS POUR LA PAGE ACCEUIL------------ */
+
+
+.mainLine titre5 {
+	color: red;
+}
+
+#block {
+	height: 500px;
+}
+
+#event {
+	float: left;
+	width: 50%;
+	height: 100%;
+}
+
+#users{
+	float: right;
+	width: 50%;
+	height: 100%;
+}
+
+.titre4 {
+	font-size: 17px;
+	text-align: center;
+}
+
+
+
+.sorti {
+	margin-top: 15px;
+	background-color: #F8F8F8;
+	width: 99%;
+	height: 100px;
+	float: left;
+}
+
+
+
+.activite {
+	height: 100%;
+	width: 100%;
+}
+
+.cover {
+	float: left;
+	height: 100%;
+	width: 125px;
+	background-color: #EDEDED;
+
+}
+
+.cover img {
+	height: 100%;
+}
+
+.activitinfo {
+	float: left;
+	background-color: #F8F8F8;
+	height: 40%;
+	bottom: 0;
+	padding-left: 30px;
+}
+
+
+
+.username {
+	float: right;
+	height: 100%;
+	width: 30%;
+}
+
+.newuser {
+	float: right;
+	margin-top: 15px;
+	background-color: #F8F8F8;
+	width: 90%;
+	/*height: 95px;*/
+}
+
+.titre5 {
+	margin-top: 10px;
+}
+
+.proposepar {
+	margin-top: 25px;
+}
+
+
+.profil {
+	float: left;
+	height: 100%;
+	width: 30%;
+}
+
+.info {
+	float: right;
+	height: 100%;
+	width: 70%;
+}
+
+.space {
+	padding-top: 1px;
+}
+
+.login {
+	font-size: 16px;
+}
+
+.interl {
+	margin-top: 5px;
+}
+
+
+h2 {
+	font-size: 20px;
+}
+
+.menuG {
+	background-color: whitesmoke;
+}
+
+
+.mainList {
+	padding-top: 35px;
+}
+
+
+.activiteLine {
+	width: 100%;
+	height: 90px;
+}
+
+.titreact {
+float: left;
+height: 100%;
+width: 25%;
+}
+
+.villeact {
+	display: inline-block;
+width: 25%;
+height: 100%;
+
+}
+
+.dateact{
+	display: inline-block;
+width: 25%;
+height: 100%;
+
+}
+
+.organisateuract {
+	display: inline-block;
+width: auto;
+height: 100%;
+
+}

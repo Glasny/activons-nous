@@ -1,0 +1,131 @@
+{% extends "page.html" %}
+
+{% block titre %}
+ Accueil
+{% endblock %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block main %}
+<div class='mainLine titre5'>
+  <p>
+	Bienvenue sur <em>Activons-nous</em>.<br/>
+	Si vous souhaitez trouver ou proposer des activités dans votre région, vous êtes au bon endroit !
+
+
+</div>
+<!--<div class='mainLine'>
+<div class='mainLine'>
+	<div class='ilBlock acceuilEvent'>
+		<div class='titre4'>Dernières activités proposées</div>
+		<div class='accueilListe'>
+			{% if activites|length>0 %}
+			{% for activite in activites %}
+			<div class='accueilExpoBloc'>
+				<div class='titre5'><a href='./index.php?&display=activite&id={{activite.id}}'>{{activite.titre}}</a></div>
+				<div>
+					<a class='titre6'>{{activite.ville}}</span>
+					<span class='titre6'>{{activite.date}}</span>
+					<span class='titre6'>{{activite.user}}</span>
+				</div>
+			</div>
+			{% endfor %}
+			{% endif %}
+		</div>
+	</div>
+	<div class='ilBlock acceuilUser'>
+		<div class='titre4'>Nouveaux utilisateurs</div>
+		<div class='accueilListe'>
+			{% if users|length>0 %}
+			{% for user in users %}
+			<div class='accueilUserBloc'>
+				<a href='./index.php?&display=utilisateur&login={{user.login}}'>
+				{% if user.fichier is not empty and user.repertoire is not empty %}
+					<div class='accueilUserImg'><img alt='{{user.login}}' src='images/{{user.repertoire}}/{{user.fichier}}'/></div>
+				{% else %}
+					<div class='accueilUserImg'><img alt='{{user.login}}' src='images/img1/defaut.jpg'/></div>
+				{% endif %}
+					<div class='titre5'>{{user.login}}</div>
+				</a>
+				<div>
+					<span class='titre6'>{{user.ville}}</span>
+					<span class='titre6'>{{user.age}} ans</span>
+					<span class='titre6'>{{user.user}}</span>
+				</div>
+			</div>
+			{% endfor %}
+			{% endif %}
+		</div>
+	</div>
+</div>-->
+
+<div id="block">
+  <div id="event">
+    <div class='titre4'>Dernières activités proposées</div>
+
+    {% if activites|length>0 %}
+    {% for activite in activites %}
+      <div class="sorti">
+
+
+
+        <div class="activite">
+          <div class="cover">
+			{% if activite.fichier is not empty and activite.repertoire is not empty %}
+				<img src='images/{{activite.repertoire}}/{{activite.fichier}}'>
+			{% endif %}
+			</div>
+
+          <div class="activitinfo">
+          <div class="titre5"><a href='./index.php?&display=activite&id={{activite.id}}'>{{activite.titre}}</a></div>
+          <div class="interl"></div>
+          <div class="date">{{activite.date}}, {{activite.ville}} </div>
+          <div class="interl"></div>
+          <div class="organisateur">{{activite.user}}</div>
+        </div>
+
+        </div>
+
+      <!--  <div class="username">
+          {% if activites|length>0 %}
+    			{% for activite in activites %}
+          <div class="proposepar">{{activite.user}}</div>
+          {% endfor %}
+          {% endif %}
+        </div>-->
+
+      </div>
+      {% endfor %}
+      {% endif %}
+  </div>
+  <div id='users'>
+    <div class='titre4'>Nouveaux utilisateurs</div>
+  {% for user in users %}
+    <div class="newuser">
+
+      <div class="profil">
+        {% if user.fichier is not empty and user.repertoire is not empty %}
+          <div class='accueilUserImg'><img alt='{{user.login}}' src='images/{{user.repertoire}}/{{user.fichier}}'height="90%" width="90%" /></div>
+        {% else %}
+          <div class='accueilUserImg'><img alt='{{user.login}}' src='images/img1/defaut2.jpg' height="90%" width="90%" /></div>
+        {% endif %}
+
+      </div>
+      <div class="info">
+        <div class="login"><a href='./index.php?&display=utilisateur&login={{user.login}}'>{{user.login}}</a></div>
+        <div class="ville">{{user.ville}}</div>
+        <div class="age">{{user.age}}</div>
+
+      </div>
+
+
+      <div class="space"></div>
+    </div>
+    {% endfor %}
+
+  </div>
+
+</div>
+{% endblock %}

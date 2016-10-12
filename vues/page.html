@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Activons-nous - {% block titre %}{% endblock %}</title>
+		<meta charset='utf-8'/>
+		<script src='js/jquery-1.11.3.min.js'></script>
+		<script src='js/main.js'></script>
+		<link rel='stylesheet' type='text/css' href='css/main.css'>
+		{% block head %}{% endblock %}
+	</head>
+	<body>
+
+
+		<div id="header">
+			<div id="content">
+			<div id="logo2">
+				<img src='images/icone.png' height="80%" width="38%">
+			</div>
+			<div class="menu">
+				<ul>
+					<li class="Accueil"><a href='./index.php'>Accueil</a></li>
+					<li class="Activites"><a href='./index.php?display=activites'>Activités</a></li>
+					<li class="Membres"><a href='./index.php?display=membre'>Membres</a></li>
+					<li class="propos"><a href='./index.php?display=apropos'>À propos</a></li>
+				</ul>
+			</div>
+			</div>
+		</div>
+
+		<div id='wrap'>
+			<div id='headerLogin'>
+				<div id="content">
+				{% if username is not empty %}
+				<div id='logged'>
+					Bienvenue, <a id='headerLoginUser' href='./index.php?display=utilisateur&login={{username}}'>{{username}}</a>
+					<a href='./index.php?action=logout'>Se déconnecter</a>
+				{% else %}
+				<div id='notLogged'>
+					<div id='login'>
+						<span id='displayConnect'>Se connecter</span>
+						<div id='connectBloc'>
+							<form method='POST' action='./index.php?action=login'>
+								<input type='text' name='login' placeholder="Nom d'utilisateur" required/><br/>
+								<input type='password' name='pass' placeholder="Mot de passe" required/><br/>
+								<input type='submit' value='Valider'/>
+								<input type='button' value='Annuler' id='cancelConnect' />
+							</form>
+						</div>
+					</div>
+					<a href='./index.php?display=create'>Créer compte</a>
+				{% endif %}
+				</div>
+			</div>
+
+		</div>
+		{% if error is not empty %}
+		<div id='errorBlock'>{{error}}</div>
+		{% endif %}
+		</div>
+		<div id='main'>
+			<div id="content2">
+			{% block main %}{% endblock %}
+			</div>
+		</div>
+
+
+</body>

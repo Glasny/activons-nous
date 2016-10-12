@@ -1,0 +1,28 @@
+#filtre {
+	z-index: 1;
+	min-width: 160px;
+	padding: 3px 0 3px 10px;
+	border-radius: 5px;
+}
+.selectContainer {
+	position: relative;
+	width: 80px;
+	margin-bottom: 10px;
+}
+.selectSubContainer {
+	position: absolute;
+	top: -0px;
+	left: 100%;
+	padding: 0 10px 10px 10px;
+	background-color: whitesmoke;
+}
+.selectContainer a {
+	font-size: 1.1em;
+	display: none;
+	text-align: left;
+	padding-right: 35px;
+	margin: 5px 0;
+}
+.selectContainer:hover a {
+	display:block;
+}

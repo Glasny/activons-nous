@@ -1,0 +1,116 @@
+{% extends 'page.html' %}
+
+{% block titre %}
+ Activité
+{% endblock %}
+
+{% block head %}
+<script src='js/activite.js'></script>
+<link rel='stylesheet' type='text/css' href='css/activite.css' />
+{% endblock %}
+
+
+{% block main %}
+<div class="entete">
+  <div class="imageevent">
+    {% if image is not empty %}
+	<img src='images/{{image}}' height="240" width="290" />
+	{% else %}
+	<div class='activiteNotImg'></div>
+	{% endif %}
+  </div>
+  <div class="infoevent">
+    <div class="titreactiv">{{titre}}</div>
+    <div class="lieudate">
+      <div class="lieu"><p><span class='titre3'>{{ville}}</span> - {{lieu}}</p></div>
+      <div class="date"><p><span> {{date}}</span></p></div>
+    </div>
+    <div class="organisateur"> Organisé par :  <a class='titre3' href='./index.php?display=utilisateur&login={{user}}'>{{user}}</a> </div>
+    <div class="categorie">	
+		{% for cat in categories %}
+		<li>{{cat.nom}}</li>
+		{% endfor %}
+	</div>
+  </div>
+</div>
+
+<div class="span2"></div>
+<div class="descr">{{description|raw}}</div>
+<div class="span2"></div>
+<div class="mainLigne">
+  <h2> PARTICIPANTS </h2>
+  <div class="liste">
+	<div><a class='titre3' href='./index.php?display=utilisateur&login={{user}}'>{{user}}</a></div>
+	{% if participants|length>0 %}
+	{% for usr in participants %}
+	<div><a href='./index?display=utilisateur&login={{usr.login}}'>{{usr.login}}</a></div>
+	{% endfor %}
+	{% endif %}
+  </div>
+</div>
+<div class="span2"></div>
+{% if appreciations|length>0 %}
+{% set nbNotes = appreciations|length %}
+{% set noteGlobale=0 %}
+{% for apr in appreciations %}
+	{% set noteGlobale=noteGlobale+apr.note %}
+{% endfor %}
+<div class='mainLigne'>
+	<h2>Appréciations : 
+		<em>{{(noteGlobale/nbNotes)|round(1, 'common')}}/5</em>
+		<span class='low'>({{nbNotes}} appréciations)</span>
+	</h2>
+	<div class='aprCommentaires'>
+		{% for apr in appreciations %}
+		{% if apr.commentaire is not empty %}
+		{{apr.commentaire|raw}}
+		{% endif %}
+		{% endfor %}
+	</div>
+</div>
+<div class="span2"></div>
+{% endif %}
+<div class='mainLigne'>
+	<div class='titre3'><h2>Commentaires : </h2></div>
+		{% if commentaires|length>0 %}
+		{% for comment in commentaires %}
+		<div class='comment'>
+			<div class='commentEntete'>
+				<div class="nameuser"> <a href='./index?display=utilisateur&login={{comment.user}}'>{{comment.user}}</a> </div>
+				<div class="dateevent"> <span class='low'>{{comment.date}}</span> </div>
+			</div>
+			<div class='commentTexte'>{{comment.contenu|raw}}</div>
+			{% if username is same as(comment.user) or droits == 0 %}
+			<div class='commentModif'>
+				<form action='./?display=commentaire&action=modifier' method='POST'>
+					<textarea name='contenu'></textarea><br/>
+					<input type='hidden' name='id' value='{{comment.id}}'/>
+					<button type='button' class='cancelEdit'>Annuler</button>
+					<button type='submit'>Valider</button>
+				</form>
+			</div>
+			<div class='commentPied'>
+				<button class='editComment'>Modifier</button>
+				<form action='./?display=commentaire&action=supprimer' method='POST' onsubmit='return confirmSupp(this);'>
+					<input type='hidden' name='id' value='{{comment.id}}'/>
+					<button type='submit' class='valider'>Supprimer</button>
+				</form>
+			</div>
+			{% endif %}
+		</div>
+		{% endfor %}
+		{% else %}
+		<div class='noComment'>Aucun commentaire</div>
+		{% endif %}
+	</div>
+	{% if droits<2 %}
+	<div id='newComment'>
+		<form action='./index.php?display=commentaire&action=enregistrer' method='POST'>
+			<textarea name='contenu' placeholder='Nouveau commentaire...' required></textarea>
+			<input type='hidden' name='activite' value='{{id}}'/><p></p>
+			<input type='submit' value='Ajouter'/>
+		</form>
+	</div>
+	{% endif %}
+</div>
+{% endblock %}
