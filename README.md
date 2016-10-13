@@ -1,12 +1,15 @@
 <h1>Activons-nous !</h1>
 
-Projet Web NFE114 : Création d'un site en suivant la méthode de conception UWE (dérivée d'UML). Juin 2016<br/>
-Le projet met l'accent sur la méthode de conception (voir rapport_projet.pdf).<br/>
+Web project - CNAM - June 2016
 
-Serveur: PHP, MySQL, templates Twig. Structure type MVC<br/>
+**Description :** The idea behind this project was to build an open platform, allowing people to organize or participate in various activities.<br/>
+The assignement specified that we should follow a specific development process called UWE, derived from UML.<br/>
+*Info about UWE available here: http://uwe.pst.ifi.lmu.de/aboutUwe.html*<br/>
+The project report is available in French: rapport_projet.pdf <br/>
+The website is incomplete, it took around 3-4 weeks to get to this stage.
+
+Server: PHP, MySQL, Twig template generator. MVC-type structure<br/>
 Client: HTML, CSS, JavaScript
 
-Développement inachevé.
-
-Lien : http://vps133660.ovh.net:8084/
+Link : http://vps133660.ovh.net:8084/
 
